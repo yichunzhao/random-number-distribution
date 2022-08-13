@@ -1,4 +1,4 @@
-# randomnumberdistribution
+# random-number-distribution
 Are people equally lucky?
 
 Given 100 persons, each having 100 DKK.
