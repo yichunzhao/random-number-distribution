@@ -17,17 +17,17 @@ public class RandomNumberDistribution {
   static Person[] persons = new Person[100];
 
   public static void main(String[] args) {
-    // 100 persons, each having 100DKK
+    // 100 persons, each having 100 DKK
     IntStream.range(0, 100).forEach(i -> persons[i] = new Person(i, 100));
 
-    for (int i = 0; i < 10000; i++) {
+    for (int i = 0; i < 10_000; i++) {
 
       // each person randomly select one person to give one DKK
       for (var person : persons) {
         // randomly select one person.
         var index = r.nextInt(0, 100);
 
-        // person give 1DKK, lucky man get 1DKK.
+        // person give out 1 DKK to a lucky man.
         person.giveOneDKK();
         persons[index].addOneDKK();
       }
