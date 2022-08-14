@@ -10,3 +10,4 @@ I iterated up to 10,000 loops, and I can see people is not naturally lucky. Some
 
 Hence, people may be not equally lucky. 
 
+In another brunch, I add another constraint, one person in one round only can receive 1 DKK, then people's income becomes balanced, and there is no very rich and very poor.
