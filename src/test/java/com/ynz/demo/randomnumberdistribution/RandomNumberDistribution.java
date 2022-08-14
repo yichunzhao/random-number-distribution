@@ -22,11 +22,11 @@ public class RandomNumberDistribution {
   static Person[] persons = new Person[100];
 
   public static void main(String[] args) {
-    // 100 persons, each having 100 DKK
+    // 100 persons, each having 100 DKK.
     IntStream.range(0, 100).forEach(i -> persons[i] = new Person(i, 100));
-    Set<Integer> memory = new HashSet<>();
 
     for (int i = 0; i < 10_000; i++) {
+      Set<Integer> memory = new HashSet<>();
 
       // each person randomly select one person to give one DKK
       for (var person : persons) {
