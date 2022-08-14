@@ -2,7 +2,9 @@ package com.ynz.demo.randomnumberdistribution;
 
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.HashSet;
 import java.util.Random;
+import java.util.Set;
 import java.util.stream.IntStream;
 
 /**
@@ -11,6 +13,9 @@ import java.util.stream.IntStream;
  *
  * <p>We want to conclude does the money will evenly go to each person? or say, are really person
  * equally lucky naturally?
+ *
+ * <p>Now we add another assumption, or say a new constraint: Each round, one person must give 1 DKK
+ * out, and each only max. receive 1 DKK.
  */
 public class RandomNumberDistribution {
   static Random r = new Random();
@@ -19,6 +24,7 @@ public class RandomNumberDistribution {
   public static void main(String[] args) {
     // 100 persons, each having 100 DKK
     IntStream.range(0, 100).forEach(i -> persons[i] = new Person(i, 100));
+    Set<Integer> memory = new HashSet<>();
 
     for (int i = 0; i < 10_000; i++) {
 
@@ -28,8 +34,12 @@ public class RandomNumberDistribution {
         var index = r.nextInt(0, 100);
 
         // person give out 1 DKK to a lucky man.
+        if (memory.contains(index)) continue;
         person.giveOneDKK();
         persons[index].addOneDKK();
+
+        // memory this index.
+        memory.add(index);
       }
     }
 
